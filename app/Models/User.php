@@ -33,16 +33,16 @@ class User extends Authenticatable
 
     public function ticket_engineers()
     {
-        $this->hasMany(Ticket::class, 'engineer_id');
+        return $this->hasMany(Ticket::class, 'engineer_id');
     }
 
     public function ticket_employees()
     {
-        $this->hasMany(Ticket::class, 'employee_id');
+        return $this->hasMany(Ticket::class, 'employee_id');
     }
     
     public function comments()
     {
-        $this->hasMany(Comment::class, 'user_id');
+        return $this->hasMany(Comment::class, 'user_id');
     }
 }

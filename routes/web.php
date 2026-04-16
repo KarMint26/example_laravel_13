@@ -51,7 +51,18 @@ Route::middleware(['auth', 'role:Employee'])
         Route::get('/dashboard', [DashboardControllerEmployee::class, 'index'])->name('employee.dashboard'); // /employee/dashboard
 
         Route::prefix('tickets')->group(function () {
+            // Menampilkan Tabel Tiket
+            Route::get('/', [TicketController::class, 'index'])->name('employee.ticket.index'); // /employee/tickets
+            
+            // Buat Tiket
             Route::get('/create', [TicketController::class, 'create_g'])->name('employee.ticket.create_g'); // /employee/tickets/create
             Route::post('/create', [TicketController::class, 'create_p'])->name('employee.ticket.create_p');
+
+            // Edit Tiket
+            Route::get('/edit/{id}', [TicketController::class, 'edit_g'])->name('employee.ticket.edit_g'); // /employee/tickets/edit/{id}
+            Route::post('/edit/{id}', [TicketController::class, 'edit_p'])->name('employee.ticket.edit_p');
+
+            // Delete Tiket
+            Route::post('/delete/{id}', [TicketController::class, 'delete'])->name('employee.ticket.delete');
         });
     });

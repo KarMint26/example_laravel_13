@@ -19,7 +19,7 @@ class Ticket extends Model
 
     public function engineer()
     {
-        $this->belongsTo(User::class, 'engineer_id');
+        return $this->belongsTo(User::class, 'engineer_id');
     }
 
     // $tiket = ['a', 'b']
@@ -29,11 +29,11 @@ class Ticket extends Model
     // $comment_all = []
     public function employee()
     {
-        $this->belongsTo(User::class, 'employee_id');
+        return $this->belongsTo(User::class, 'employee_id');
     }
 
     public function comments()
     {
-        $this->hasMany(Comment::class, 'user_id');
+        return $this->hasMany(Comment::class, 'user_id');
     }
 }

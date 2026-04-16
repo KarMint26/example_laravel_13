@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('priority', 255);
             $table->dateTime('tgl_sla');
             $table->foreignId('employee_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->foreignId('engineer_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->timestamps(); // -> created_at & updated_at
+            $table->foreignId('engineer_id')->nullable()->constrained('users', 'id')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
